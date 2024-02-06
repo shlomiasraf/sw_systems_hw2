@@ -55,6 +55,6 @@ void theRoute(int matrix[S][S],int i, int j)
     }
     else
     {
-        printf("%d\n",-1);
+        printf("-1\n");
     }
 }
