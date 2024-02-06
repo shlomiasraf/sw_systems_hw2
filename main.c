@@ -4,7 +4,7 @@ int main()
 {
     int matrix[S][S];
     char ch;
-    scanf( " %c", &ch);
+    scanf("%c", &ch);
     while (ch != 'D')
     {
         if(ch == 'A')
@@ -15,7 +15,7 @@ int main()
         if (ch == 'B' || ch == 'C')
         {
             int i,j;
-            scanf( "%d %d", &i, &j);
+            scanf("%d %d", &i, &j);
             if(ch == 'B')
             {
                 checkRoute(matrix,i,j);
@@ -26,7 +26,7 @@ int main()
             }
             
         }
-        scanf( " %c", &ch);
+        scanf("%c", &ch);
     }
     return 0;
 }

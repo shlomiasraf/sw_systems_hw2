@@ -16,7 +16,7 @@ void initMatrix(int matrix[S][S])
         for (int j = 0; j < S; j++)
         {
             int num1;
-            scanf( "%d", &num1);
+            scanf("%d", &num1);
             matrix[i][j] = num1;
         }
     }
@@ -67,6 +67,6 @@ void theRoute(int matrix[S][S],int i, int j)
     }
     else
     {
-        printf("-1\n");
+        printf("%d\n",-1);
     }
 }
