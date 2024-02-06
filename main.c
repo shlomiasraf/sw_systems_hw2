@@ -4,11 +4,7 @@ int main()
 {
     int matrix[S][S];
     char ch;
-<<<<<<< HEAD
     scanf( " %c", &ch);
-=======
-    scanf(" %c", &ch);
->>>>>>> 4f759973e101e1f40cc49e5f651c1f33b0687df7
     while (ch != 'D')
     {
         if(ch == 'A')
@@ -30,11 +26,7 @@ int main()
             }
             
         }
-<<<<<<< HEAD
         scanf( " %c", &ch);
-=======
-        scanf(" %c", &ch);
->>>>>>> 4f759973e101e1f40cc49e5f651c1f33b0687df7
     }
     return 0;
 }
