@@ -40,11 +40,11 @@ void checkRoute(int matrix[S][S],int i, int j)
 {
     if(matrix[i][j] != 0)
     {
-        printf("True \n");
+        printf("True\n");
     }
     else
     {
-        printf("False \n");
+        printf("False\n");
     }
 }
 void theRoute(int matrix[S][S],int i, int j)
