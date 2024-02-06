@@ -9,6 +9,18 @@ int min(int num1,int num2)
     }
     return num2;
 }
+void initMatrix(int matrix[S][S])
+{
+    for (int i = 0; i < S; i++)
+    {        
+        for (int j = 0; j < S; j++)
+        {
+            int num1;
+            scanf( "%d", &num1);
+            matrix[i][j] = num1;
+        }
+    }
+}
 void neighborMatrix(int matrix[S][S])
 {
     for(int k = 0; k < S; k++)

@@ -4,20 +4,16 @@ int main()
 {
     int matrix[S][S];
     char ch;
+<<<<<<< HEAD
+    scanf( " %c", &ch);
+=======
     scanf(" %c", &ch);
+>>>>>>> 4f759973e101e1f40cc49e5f651c1f33b0687df7
     while (ch != 'D')
     {
         if(ch == 'A')
         {
-            for (int i = 0; i < S; i++)
-            {        
-                for (int j = 0; j < S; j++)
-                {
-                    int num1;
-                    scanf( "%d", &num1);
-                    matrix[i][j] = num1;
-                }
-            }
+            initMatrix(matrix);
             neighborMatrix(matrix);
         }
         if (ch == 'B' || ch == 'C')
@@ -34,7 +30,11 @@ int main()
             }
             
         }
+<<<<<<< HEAD
+        scanf( " %c", &ch);
+=======
         scanf(" %c", &ch);
+>>>>>>> 4f759973e101e1f40cc49e5f651c1f33b0687df7
     }
     return 0;
 }
