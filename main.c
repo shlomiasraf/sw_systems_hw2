@@ -4,7 +4,7 @@ int main()
 {
     int matrix[S][S];
     char ch;
-    scanf( "%c", &ch);
+    scanf(" %c", &ch);
     while (ch != 'D')
     {
         if(ch == 'A')
@@ -34,7 +34,7 @@ int main()
             }
             
         }
-        scanf( "%c", &ch);
+        scanf(" %c", &ch);
     }
     return 0;
 }
