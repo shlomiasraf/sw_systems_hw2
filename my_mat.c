@@ -51,13 +51,10 @@ void theRoute(int matrix[S][S],int i, int j)
 {
     if(matrix[i][j] != 0)
     {
-        printf("%d",matrix[i][j]);
-        printf("\n");
+        printf("%d\n",matrix[i][j]);
     }
     else
     {
-        printf("%d",-1);
-        printf("\n");
-
+        printf("%d\n",-1);
     }
 }
