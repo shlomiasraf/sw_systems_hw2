@@ -9,7 +9,6 @@ int main()
     {
         if(ch == 'A')
         {
-            printf("enter the matrix values: \n");
             for (int i = 0; i < S; i++)
             {        
                 for (int j = 0; j < S; j++)
@@ -19,12 +18,10 @@ int main()
                     matrix[i][j] = num1;
                 }
             }
-            printf("finish \n");
             neighborMatrix(matrix);
         }
         if (ch == 'B' || ch == 'C')
         {
-            printf("enter i,j values: \n");
             int i,j;
             scanf( "%d %d", &i, &j);
             if(ch == 'B')
