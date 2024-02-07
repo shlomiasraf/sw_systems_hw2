@@ -1,21 +1,23 @@
-CC=gcc
-AR=ar
-OBJECTS_MAIN=main.o
-OBJECTS_MY_mat=my_mat.o
-FLAGS= -Wall 
-all: connections
-# Create main with the my_mat library.
-connections: $(OBJECTS_MAIN) libmy_mat.a
-	$(CC) $(FLAGS) -o connections $(OBJECTS_MAIN) ./libmy_mat.a
-# Compile main.c	
-main.o: main.c my_mat.h
-	$(CC) $(FLAGS) -c main.c
-# Make the library with OBJECTS_MY_mat
-libmy_mat.a: $(OBJECTS_MY_mat)
-	$(AR) rcs $@ $^
-# Add my_mata.h to the implicit rules
-%.o: %.c my_mat.h
-	$(CC) $(CFLAGS) -c $<
-#Clear everything we create
+CC= gcc
+CFLAGS= -Wall -g 
+OBJ= my_mat.o
+
+all: my_graph my_Knapsack
+# Make the shared library with OBJ
+libmy_mat.so: $(OBJ) my_mat.h
+	$(CC) -shared -fpic -o $@ $^
+# Create my_graph with the my_mat library.
+my_graph: my_graph.o libmy_mat.so
+	$(CC) $(CFLAGS) my_graph.o ./libmy_mat.so -o my_graph
+# Compile my_graph.c
+my_graph.o: my_graph.c my_mat.h 
+	$(CC) $(CFLAGS) -c my_graph.c 
+# Create my_Knapsack
+my_Knapsack: my_Knapsack.o 
+	$(CC) $(CFLAGS) my_Knapsack.o -o my_Knapsack
+# Compile my_Knapsack.c
+my_knapsack.o: my_knapsack.c
+	$(CC) $(CFLAGS) -o my_Knapsack.c
+
 clean:
-	rm -f *.o *.a *.so con 
+	rm -f *.o *.so my_graph my_Knapsack
