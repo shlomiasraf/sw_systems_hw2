@@ -1,77 +1,77 @@
 #include <stdio.h>
 #include "my_mat.h"
-#define W 20
-#define N 5
-//return the bigger number.
-int max(int num1, int num2)
+#include <stdbool.h>
+//return the smaller number.
+int min(int num1,int num2)
 {
-    if(num1 > num2)
+    if(num1<num2)
     {
         return num1;
     }
     return num2;
 }
-//return the maximum profit.
-int knapSack(int weights[N], int values[N] ,int selected_bool[N])
+//gets input for the matrix variables.
+void initMatrix(int matrix[S][S])
 {
-
-    int matrix[N+1][W+1]= {0};
-    for(int i = 1; i < N; i++)
-    {
-        for(int j = 0; j < W+1; j++)
+    for (int i = 0; i < S; i++)
+    {        
+        for (int j = 0; j < S; j++)
         {
-            if(j < weights[i-1])
-            {
-                matrix[i][j] = matrix[i-1][j];
-            }
-            else
-            {
-                matrix[i][j] = max(matrix[i-1][j], values[i-1] + matrix[i-1][j-weights[i-1]]);
-            }
+            int num1;
+            scanf("%d", &num1);
+            matrix[i][j] = num1;
         }
     }
-    int j = W;
-    int i = N-1;
-    int maxProfit = 0;
-    while(i >= 0 && j > 0)
-    {
-        if(matrix[i][j] < values[i] + matrix[i][j-weights[i]])
-        {
-            selected_bool[i] = 1;
-            j = j-weights[i];
-            maxProfit += values[i];
-        }
-        i--;
-    }
-    return maxProfit;
 }
-//gets input from the user and prints the max profit and the selected items.
-int main()
+//checks the shortest path in the matrix.
+void neighborMatrix(int matrix[S][S])
 {
-    int selected_bool[N] = {0};
-    char items[N];
-    int values[N];
-    int weights[N];
-    for(int i=0;i <N; i++)
+    for(int k = 0; k < S; k++)
     {
-            char item; 
-            int weight, value;
-            scanf(" %c", &item);
-            scanf("%d", &value);
-            scanf("%d", &weight);
-            items[i] = item;
-            values[i] = value;
-            weights[i] = weight;
-    }    
-    printf("Maximum profit: ");
-    printf("%d",knapSack(weights,values,selected_bool));
-    printf("\nSelected items:");
-    for(int i = 0; i < N; i++)
-    {
-        if(selected_bool[i] == 1)
+        for(int i = 0; i < S; i++)
         {
-            printf(" %c",items[i]);
+            for (int j = 0; j < S; j++)
+            {
+                if(i!=j)
+                {
+                    if(matrix[i][j] != 0)
+                    {
+                        if(matrix[i][k] != 0 && matrix[k][j] != 0)
+                        {
+                            matrix[i][j] = min(matrix[i][j],matrix[i][k]+matrix[k][j]);
+                        }
+                    }
+                    else if(matrix[i][k] != 0 && matrix[k][j] != 0)
+                    {
+                        matrix[i][j] = matrix[i][k]+ matrix[k][j];
+                    }
+                }
+            }
+            
         }
     }
-    return 0;
+}
+//prints true if there is a route from i to j otherwise print false.
+void checkRoute(int matrix[S][S],int i, int j)
+{
+    if(matrix[i][j] != 0)
+    {
+        printf("True\n");
+    }
+    else
+    {
+        printf("False\n");
+    }
+}
+//prints true if there is a route from i to j otherwise print false.
+void theRoute(int matrix[S][S],int i, int j)
+{
+    if(matrix[i][j] != 0)
+    {
+        printf("%d\n",matrix[i][j]);
+    }
+    else
+    {
+        printf("%d\n",-1);
+    }
 }
