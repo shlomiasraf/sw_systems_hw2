@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "my_mat.h"
 #include <stdbool.h>
+//return the smaller number.
 int min(int num1,int num2)
 {
     if(num1<num2)
@@ -9,6 +10,7 @@ int min(int num1,int num2)
     }
     return num2;
 }
+//gets input for the matrix variables.
 void initMatrix(int matrix[S][S])
 {
     for (int i = 0; i < S; i++)
@@ -21,6 +23,7 @@ void initMatrix(int matrix[S][S])
         }
     }
 }
+//checks the shortest path in the matrix.
 void neighborMatrix(int matrix[S][S])
 {
     for(int k = 0; k < S; k++)
@@ -48,7 +51,8 @@ void neighborMatrix(int matrix[S][S])
         }
     }
 }
-void checkRoute(int matrix[S][S],int i, int j)
+//prints true if there is a route from i to j otherwise print false.
+​void checkRoute(int matrix[S][S],int i, int j)
 {
     if(matrix[i][j] != 0)
     {
@@ -59,6 +63,7 @@ void checkRoute(int matrix[S][S],int i, int j)
         printf("False\n");
     }
 }
+//prints the shortest path from i to j if there isn't route prints -1.
 void theRoute(int matrix[S][S],int i, int j)
 {
     if(matrix[i][j] != 0)

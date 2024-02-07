@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "my_mat.h"
+//starts the program and receives characters from the user and runs functions according to them.
 int main()
 {
     int matrix[S][S];
